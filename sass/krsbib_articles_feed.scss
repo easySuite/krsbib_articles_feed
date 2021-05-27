@@ -1,0 +1,54 @@
+.krsbib-articles-feed {
+  margin: 0;
+  padding: 0;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+  }
+
+  .item {
+    width: calc(100%/3);
+    height: 420px;
+    flex-grow: 1;
+    margin-right: 18px;
+    background-color: #2c2c30;
+    margin-bottom: 10px;
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+
+    a {
+      height: auto;
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+
+    .image {
+      height: 200px;
+      background-size: cover;
+    }
+
+    .item-content {
+      padding: 15px;
+
+      .title {
+        min-height: 24px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .more-links {
+    ul {
+      padding-left: 0;
+    }
+  }
+}
