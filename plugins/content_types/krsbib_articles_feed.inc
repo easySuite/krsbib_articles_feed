@@ -33,7 +33,7 @@ function krsbib_articles_feed_render($subtype, $conf, $args, $context) {
     $cache_data = cache_get('krsbib_articles_feed');
   }
   else {
-    $request = drupal_http_request('https://www.blogg.krsbib.no/wp-json/wp/v2/posts?per_page=3');
+    $request = drupal_http_request('https://www.blogg.krsbib.no/wp-json/wp/v2/posts?per_page=4');
     cache_set('krsbib_articles_feed', $request->data, 'cache', REQUEST_TIME + 86400);
     $cache_data = cache_get('krsbib_articles_feed');
   }
@@ -45,7 +45,7 @@ function krsbib_articles_feed_render($subtype, $conf, $args, $context) {
     foreach ($data as $key => $article) {
       $content[$key]['link'] = $article['link'];
       $content[$key]['title'] = $article['title']['rendered'];
-      $content[$key]['subtitle'] = strip_tags($article['excerpt']['rendered']);
+      $content[$key]['subtitle'] = truncate_utf8(strip_tags($article['excerpt']['rendered']), 100, TRUE, TRUE);
       $content[$key]['image'] = krsbib_articles_feed_fetch_image($article['_links']['wp:featuredmedia']);
 
       $items[] = theme('krsbib_articles_feed_item', ['item' => $content[$key]]);
