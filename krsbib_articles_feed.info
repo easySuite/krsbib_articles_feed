@@ -1,5 +1,6 @@
 name = KRSBIB articles feed
-description = "Displays last 3 articles from https://www.blogg.krsbib.no"
+description = "Displays latest 4 articles from https://www.blogg.krsbib.no"
 core = 7.x
+release = 7.x-6.2.1
 package = Bibliofil
 stylesheets[all][] = css/krsbib_articles_feed.css
