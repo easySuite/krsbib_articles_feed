@@ -33,7 +33,7 @@ function krsbib_articles_feed_render($subtype, $conf, $args, $context) {
     $cache_data = cache_get('krsbib_articles_feed');
   }
   else {
-    $request = drupal_http_request('https://www.blogg.krsbib.no/wp-json/wp/v2/posts?per_page=4');
+    $request = drupal_http_request('https://www.blogg.krsbib.no/wp-json/wp/v2/posts?per_page=3');
     cache_set('krsbib_articles_feed', $request->data, 'cache', REQUEST_TIME + 86400);
     $cache_data = cache_get('krsbib_articles_feed');
   }
